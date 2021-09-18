@@ -15,6 +15,8 @@ Features
 
 - Stack-based parsing algorithm
 
+- Header-only implementation
+
 CMake
 -----
 
