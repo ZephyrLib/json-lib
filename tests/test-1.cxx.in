@@ -1,0 +1,17 @@
+
+#include <chrono>
+#include <fstream>
+#include <iostream>
+
+#include "json-lib/json.hpp"
+
+int main(int, char **) {
+    std::ifstream f{ "@json_file@" };
+    if (!f) { throw std::runtime_error("failed to open json"); }
+
+    auto t0 = std::chrono::steady_clock::now();
+    json::parse(f);
+    auto t1 = std::chrono::steady_clock::now();
+
+    std::cout << "ms taken: " << std::chrono::duration_cast<std::chrono::milliseconds>(t1 - t0).count();
+}
